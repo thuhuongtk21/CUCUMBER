@@ -13,8 +13,8 @@ import cucumber.api.SnippetType;
 		glue = "stepDefinitions", 
 		monochrome = true, 
 		plugin = { "pretty",
-		"html:target/cucumber",
-		"junit:target/cucumber/cucumber.xml" }, 
+		"html:target/site/cucumber-reports",
+		"json:target/site/cucumber.json" }, 
 		snippets = SnippetType.CAMELCASE, 
 		tags = { "@payment" })
 

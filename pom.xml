@@ -21,6 +21,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>net.masterthought</groupId>
+			<artifactId>cucumber-reporting</artifactId>
+			<version>3.10.0</version>
+		</dependency>
+
+		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-core</artifactId>
 			<version>${cucumber.version}</version>
@@ -32,12 +38,8 @@
 			<version>${cucumber.version}</version>
 		</dependency>
 
-		<!-- <dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			<version>4.7</version> <scope>test</scope> </dependency> -->
 
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -88,6 +90,29 @@
 					</includes>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>3.10.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>JAVA CUCUMBER REPORT - BANK GURU</projectName>
+                            <outputDirectory>${project.build.directory}/site/cucumber-reporting</outputDirectory>
+                            <cucumberOutput>${project.build.directory}/site/cucumber.json</cucumberOutput>
+                            <enableFlashCharts>true</enableFlashCharts>
+                            <skippedFails>true</skippedFails>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			
 		</plugins>
 	</build>
 </project>
