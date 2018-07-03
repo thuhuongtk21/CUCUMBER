@@ -1,13 +1,25 @@
 package stepDefinitions;
 
+import org.openqa.selenium.WebDriver;
+
 import commons.AbstractTest;
+import commons.PageFactoryManager;
 import cucumber.api.java.en.When;
+import cucumberOptions.Hooks;
 import pages.RegisterPagePO;
 
 public class RegisterPageSteps {
-	String username, password, loginUrl;
+	WebDriver driver;
+	String username, password, loginUrl = "http://www.demo.guru99.com/v4/";
 	private RegisterPagePO registerPage;
 	private AbstractTest abstractTest;
+	
+	public RegisterPageSteps() {
+		driver = Hooks.openBrowser();
+		registerPage = PageFactoryManager.getRegisterPage(driver);
+		abstractTest = new AbstractTest();
+
+	}
 	
 	@When("^I input to email textbox$")
 	public void iInputToEmailTextbox()  {

@@ -1,9 +1,9 @@
-@pagement
+
 Feature: PAYMENT FUNCTION
   As an automation test
   I want to create an Account
   So that I can verify register function work well
-
+@payment
   Scenario: [PAYMENT] - CREATE NEW ACCOUNT
     Given I get login url
     When I click to here link
@@ -11,7 +11,7 @@ Feature: PAYMENT FUNCTION
     And I click to submit button at register page
     Then I get to username information
     And I get to password information
-
+@payment
   Scenario: [PAYMENT] - LOGIN WITH INFORMATION ABOVE
     Given I open to login page
     When I input to username textbox

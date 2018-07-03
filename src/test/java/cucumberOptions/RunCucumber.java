@@ -2,6 +2,7 @@ package cucumberOptions;
 
 import org.junit.runner.RunWith;
 
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import cucumber.api.SnippetType;
@@ -15,7 +16,7 @@ import cucumber.api.SnippetType;
 		"html:target/cucumber",
 		"junit:target/cucumber/cucumber.xml" }, 
 		snippets = SnippetType.CAMELCASE, 
-		tags = { "@account" })
+		tags = { "@payment" })
 
 public class RunCucumber {
 

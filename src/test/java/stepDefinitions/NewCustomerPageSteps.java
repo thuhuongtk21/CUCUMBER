@@ -8,12 +8,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import commons.PageFactoryManager;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.When;
+import cucumberOptions.Hooks;
+import pages.NewCustomerPagePO;
 
 public class NewCustomerPageSteps {
 	WebDriver driver;
 	String emailUnique;
+	private NewCustomerPagePO newCustomerPage;
+	
+	public NewCustomerPageSteps() {
+		driver = Hooks.openBrowser();
+		newCustomerPage = PageFactoryManager.getNewCustomerPage(driver);
+
+	}
 	
 	@When("^I click to New Customer Page$")
 	public void iClickToNewCustomerPage() {

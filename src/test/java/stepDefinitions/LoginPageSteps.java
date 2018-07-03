@@ -1,31 +1,32 @@
 package stepDefinitions;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import commons.PageFactoryManager;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import cucumberOptions.Hooks;
 import pages.LoginPagePO;
 
 public class LoginPageSteps {
 	WebDriver driver;
-	String username, password, loginUrl, welcomeMessage;
+	String username = "mngr134681", password = "mudUhaj", loginUrl, welcomeMessage;
 	
 
 	private LoginPagePO loginPage;
 
 	public LoginPageSteps() {
+		driver = Hooks.openBrowser();
+		loginPage = PageFactoryManager.getLoginPage(driver);
 
 	}
 
-	@Given("^I open browser$")
+	/*@Given("^I open browser$")
 	public void iOpenBrowser() {
 		driver = new FirefoxDriver();
 		driver.get("http://demo.guru99.com/v4/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-	}
+	}*/
 
 	@Given("^I get login url$")
 	public void iGetLoginUrl() {
