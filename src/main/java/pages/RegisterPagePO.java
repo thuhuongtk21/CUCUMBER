@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
+
 import commons.AbstractPage;
 import commons.PageFactoryManager;
 import interfaces.RegisterPageUI;;

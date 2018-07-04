@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import java.util.List;
+
 import java.util.Map;
 
 import org.openqa.selenium.By;
@@ -13,6 +14,7 @@ import cucumber.api.DataTable;
 import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
 import pages.NewCustomerPagePO;
+import interfaces.NewCustomerPageUI;
 
 public class NewCustomerPageSteps {
 	WebDriver driver;
@@ -57,6 +59,8 @@ public class NewCustomerPageSteps {
 		phoneTextbox.sendKeys(customer.get(0).get("Phone"));
 		emailIdTextbox.sendKeys(customer.get(0).get("Email") + emailUnique + "@gmail.com");
 		passwordTextbox.sendKeys(customer.get(0).get("Password"));
+		
+	
 
 	}
 

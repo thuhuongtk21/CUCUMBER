@@ -2,15 +2,15 @@ package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
 
+
 import commons.AbstractTest;
 import commons.PageFactoryManager;
 import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
 import pages.RegisterPagePO;
 
-public class RegisterPageSteps {
-	WebDriver driver;
-	String username, password, loginUrl = "http://www.demo.guru99.com/v4/";
+public class RegisterPageSteps extends ShareData{
+	WebDriver driver;	
 	private RegisterPagePO registerPage;
 	private AbstractTest abstractTest;
 	
@@ -34,17 +34,17 @@ public class RegisterPageSteps {
 	@When("^I get to username information$")
 	public void iGetToUsernameInformation()  {
 		
-		username = registerPage.getUserIdInfor();
+		ShareData.username = registerPage.getUserIdInfor();
 	}
 
 	@When("^I get to password information$")
 	public void iGetToPasswordInformation()  {
-		password = registerPage.getPasswordInfor();
+		ShareData.password = registerPage.getPasswordInfor();
 	}
 
 	@When("^I open to login page$")
 	public void iOpenToLoginPage()  {
-	    registerPage.openLoginPage(loginUrl);
+	    registerPage.openLoginPage(ShareData.loginUrl);
 	}
 
 }
