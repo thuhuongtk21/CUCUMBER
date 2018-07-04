@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 
 import pages.ChangePasswordPO;
+import pages.CommonPagePO;
 import pages.CustomisedStatementPO;
 import pages.DeleteAccountPO;
 import pages.DeleteCustomerPagePO;
@@ -36,6 +37,7 @@ public class PageFactoryManager {
 	private static ChangePasswordPO changePasswordPage;
 	private static MiniStatementPO miniStatementPage;
 	private static CustomisedStatementPO customisedStatementPage;
+	private static CommonPagePO commonPage;
 
 	
 	
@@ -45,6 +47,13 @@ public class PageFactoryManager {
 			return new HomePagePO(driver_);
 		}
 		return homePage;
+	}
+	
+	public static CommonPagePO getCommonPage(WebDriver driver_) {
+		if(commonPage==null) {
+			return new CommonPagePO(driver_);
+		}
+		return commonPage;
 	}
 	
 	public static LoginPagePO getLoginPage(WebDriver driver_) {

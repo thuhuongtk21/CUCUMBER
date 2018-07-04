@@ -16,7 +16,7 @@ import cucumber.api.SnippetType;
 		"html:target/site/cucumber-reports",
 		"json:target/site/cucumber.json" }, 
 		snippets = SnippetType.CAMELCASE, 
-		tags = { "@payment" })
+		tags = { "@payment1" })
 
 public class RunCucumber {
 

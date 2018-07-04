@@ -71,7 +71,7 @@ public class AbstractPage {
 
 	}
 	
-	public void sendKeyToElement(WebDriver driver, String locator, String value, String dynamicXpath) {
+	public void sendKeyToElement(WebDriver driver, String locator, String dynamicXpath, String value) {
 		locator = String.format(locator, dynamicXpath);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
@@ -92,6 +92,13 @@ public class AbstractPage {
 	}
 
 	public String getAttributeValue(WebDriver driver, String locator, String attribute) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.getAttribute(attribute);
+
+	}
+	
+	public String getAttributeValue(WebDriver driver, String locator, String value, String attribute) {
+		locator = String.format(locator, value);
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.getAttribute(attribute);
 

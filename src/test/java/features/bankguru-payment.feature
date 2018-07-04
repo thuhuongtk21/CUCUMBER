@@ -18,6 +18,18 @@ Feature: PAYMENT FUNCTION
     And I input to password textbox
     And I input to submit button at login page
     Then I verify homepage welcome message displayed
+    
+    @payment
+  Scenario: [PAYMENT] - CUCUMBER REGEX
+    Given I open to login page
+    When I input first Account ID
+    And I input second Account ID
+    And I input third Account ID
+    
+    And I transfer to "<Amount>" USD
+    And I withdraw to "<Amount>" USD
+    
+    Then I verify homepage welcome message displayed
 
   Scenario Outline: [PAYMENT] - CREATE NEW CUSTOMER
     Given I click to New Customer Page
