@@ -3,7 +3,10 @@ package pages;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
+import cucumber.api.java.en.When;
+import interfaces.AbstractPageUI;
 import interfaces.NewCustomerPageUI;
+import stepDefinitions.ShareData;
 
 public class NewCustomerPagePO extends AbstractPage {
 	WebDriver driver;
@@ -12,38 +15,15 @@ public class NewCustomerPagePO extends AbstractPage {
 		this.driver = driver_;
 	}
 	
-	public void inputDataForName(String value) {
-		waitForControlVisible(driver, NewCustomerPageUI.NAME_TXT);
-		sendKeyToElement(driver, NewCustomerPageUI.NAME_TXT, value);
+	public String getCustomerID() {
+		waitForControlVisible(driver, NewCustomerPageUI.CUSTOMER_ID_TEXTBOX);
+		return getTextElement(driver, NewCustomerPageUI.CUSTOMER_ID_TEXTBOX);
 	}
 	
-	public void inputDataForGender() {
-		
-	}
 	
-	public void inputDataForDateOfBirth() {
-		
-	}
 	
-	public void inputDataForAddress() {
-		
-	}
-	
-	public void inputDataForCity() {
-		
-	}
-	
-	public void inputDataForState() {
-		
-	}
-	
-	public void inputDataForPin() {
-		
-	}
-	
-	public void inputDataForPhone() {
-		
-	}
+
+
 	
 
 }

@@ -18,7 +18,7 @@ import pages.HomePagePO;
 import pages.NewAccountPO;
 import pages.NewCustomerPagePO;
 
-public class AbstractPageSteps {
+public class CommonPageSteps {
 	WebDriver driver;
 	private CommonPagePO commonPage;
 	private AbstractTest abstractTest;
@@ -32,7 +32,7 @@ public class AbstractPageSteps {
 	private DepositPO depositPage;
 	private AbstractPage abstractPage;
 
-	public AbstractPageSteps() {
+	public CommonPageSteps() {
 		driver = Hooks.openBrowser();
 		commonPage = PageFactoryManager.getCommonPage(driver);
 		abstractTest = new AbstractTest();
@@ -42,6 +42,12 @@ public class AbstractPageSteps {
 	@When("^I click to \"(.*?)\" button$")
 	public void iClickToDynamicButton(String buttonName) {
 		commonPage.clickToDynamicButton(buttonName);
+	}
+	
+	@When("^I click to \"(.*?)\" radio button with data \"(.*?)\"$")
+	public void iClickToDynamicRadioButtonWithDynamicValue(String radioButtonName, String value) {
+	    
+	    commonPage.clickToDynamicRadioButtonWithDynamicValue(radioButtonName, value);
 	}
 
 	@When("^I input to \"(.*?)\" textbox with data \"(.*?)\"$")
@@ -55,11 +61,33 @@ public class AbstractPageSteps {
 		abstractTest.verifyEquals(actualValue, expectedValue);
 	}
 	
+	@When("^I verify expected data at \"(.*?)\" text in table with actual data \"(.*?)\"$")
+	public void iVerifyExpectedDataAtTextInTableWithActualData(String textInTableName, String actualValue) {
+		String expectedValue = commonPage.getDynamicValueInDynamicTextAtTable(textInTableName); 
+		abstractTest.verifyEquals(actualValue, expectedValue);
+	}
+	
+	@When("^Verify created or edited successfully with message \"(.*?)\"$")
+	public void iVerifyCreatedOrEditedSuccessfullyWithDynamicMessage(String messageName) {
+		abstractTest.verifyTrue(commonPage.isCreatedOrEditedSuccessMessageDisplayed(messageName));
+	}
+	
 	@When("^I input to \"(.*?)\" textbox with random data \"(.*?)\"$")
 	public void iInputToDynamicTextboxWithRandomData(String textboxName, String value) {
-		value = value + abstractTest.randomNumber();
+		value = abstractTest.randomNumber() + value;
 	    commonPage.inputToDynamicTextbox(textboxName, value);
 	    
+	}
+	
+	@When("^I input to \"(.*?)\" textarea with data \"(.*?)\"$")
+	public void iInputToTextareaWithData(String textareaName, String value) {
+	    commonPage.inputToDynamicTextareaWithDynamicData(textareaName, value);
+	    
+	}
+	
+	@When("^I select value is \"(.*?)\" in dropdown list \"(.*?)\"$")
+	public void iSelectDynamicValueInDynamicDropdownList(String value, String dropdownListName) {
+		commonPage.selectDynamicValueInDynamicDropdownList(value, dropdownListName);
 	}
 
 	@When("^I open \"(.*?)\" page$")

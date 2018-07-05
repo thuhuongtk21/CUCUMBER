@@ -31,18 +31,18 @@ public class RegisterPageSteps extends ShareData{
 		registerPage.clickToSubmitButton();
 	}
 
-	@When("^I get to username information$")
+	@When("^I get infor of User ID$")
 	public void iGetToUsernameInformation()  {
 		
 		ShareData.username = registerPage.getUserIdInfor();
 	}
 
-	@When("^I get to password information$")
+	@When("^I get infor of Password$")
 	public void iGetToPasswordInformation()  {
 		ShareData.password = registerPage.getPasswordInfor();
 	}
 
-	@When("^I open to login page$")
+	@When("^I open login page again$")
 	public void iOpenToLoginPage()  {
 	    registerPage.openLoginPage(ShareData.loginUrl);
 	}

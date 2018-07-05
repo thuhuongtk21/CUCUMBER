@@ -12,10 +12,10 @@ public class HomePagePO extends AbstractPage {
 		this.driver = driver_;
 	}
 	
-	public boolean isWelcomeMessageDisplayed() {
+	public boolean isWelcomeMessageDisplayed(String message) {
 		
-		waitForControlVisible(driver, HomePageUI.WELCOM_MESSAGE);
-		return isControlDisplayed(driver, HomePageUI.WELCOM_MESSAGE);
+		waitForControlVisible(driver, HomePageUI.WELCOM_MESSAGE, message);
+		return isControlDisplayed(driver, HomePageUI.WELCOM_MESSAGE, message);
 	}
 
 	

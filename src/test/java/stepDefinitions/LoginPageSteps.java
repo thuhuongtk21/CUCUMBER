@@ -29,20 +29,16 @@ public class LoginPageSteps extends ShareData{
 		loginPage.clickToHereLink();
 	}
 
-	@When("^I input to username textbox$")
+	@When("^I input to UserID textbox$")
 	public void iInputToUsernameTextbox() {
 		loginPage.inputToUsernameTextbox(ShareData.username);
 	}
 
-	@When("^I input to password textbox$")
+	@When("^I input to Password textbox$")
 	public void iInputToPasswordTextbox() {
 		loginPage.inputToPasswordTextbox(ShareData.password);
 	}
-
-	@When("^I input to submit button at login page$")
-	public void iInputToSubmitButtonAtLoginPage() {
-		loginPage.clickToSubmitButton();
-	}
+	
 
 	
 

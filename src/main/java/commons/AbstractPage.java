@@ -84,6 +84,13 @@ public class AbstractPage {
 		select.selectByVisibleText(value);
 
 	}
+	
+	public void selectItemInDropdown(WebDriver driver, String locator, String dropdownName, String value) {
+		locator = String.format(locator, dropdownName);
+		Select select = new Select(driver.findElement(By.xpath(locator)));
+		select.selectByVisibleText(value);
+
+	}
 
 	public String getFirstItemSelected(WebDriver driver, String locator) {
 		Select select = new Select(driver.findElement(By.xpath(locator)));
@@ -105,6 +112,13 @@ public class AbstractPage {
 	}
 
 	public String getTextElement(WebDriver driver, String locator) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.getText();
+
+	}
+	
+	public String getTextElement(WebDriver driver, String locator, String value) {
+		locator = String.format(locator, value);
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.getText();
 
@@ -329,6 +343,14 @@ public class AbstractPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
 
 	}
+	
+	public void waitForControlVisible(WebDriver driver, String locator, String value, String name) {
+		locator = String.format(locator, value, name);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+
+	}
+	
 	
 	
 	

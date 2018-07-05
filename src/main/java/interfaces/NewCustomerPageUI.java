@@ -11,5 +11,6 @@ public class NewCustomerPageUI {
 	public static final String TELEPHONE_TXT = "//input[@name='telephoneno']";
 	public static final String EMAILID_TXT = "//input[@name='emailid']";
 	public static final String PASSWORD_TXT = "//input[@name='password']";
+	public static final String CUSTOMER_ID_TEXTBOX = "//td[text()='Customer ID']/following-sibling::td";
 
 }
