@@ -3,10 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import cucumber.api.java.en.When;
-import interfaces.AbstractPageUI;
 import interfaces.NewCustomerPageUI;
-import stepDefinitions.ShareData;
 
 public class NewCustomerPagePO extends AbstractPage {
 	WebDriver driver;

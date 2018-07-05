@@ -38,6 +38,7 @@ public class PageFactoryManager {
 	private static MiniStatementPO miniStatementPage;
 	private static CustomisedStatementPO customisedStatementPage;
 	private static CommonPagePO commonPage;
+	
 
 	
 	
@@ -155,6 +156,7 @@ public class PageFactoryManager {
 		}
 		return customisedStatementPage;
 	}
+	
 	
 	
 

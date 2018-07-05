@@ -3,7 +3,7 @@ Feature: PAYMENT FEATURE
   I want to create new Customer
   So that I can make sure payment correctly
 
-  @payment1
+
   Scenario Outline: Create new Customer and get NewCustomerID
     Given I input to "uid" textbox with data "mngr134681"
     And I input to "password" textbox with data "mudUhaj"

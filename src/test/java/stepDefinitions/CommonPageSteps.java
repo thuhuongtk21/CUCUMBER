@@ -9,27 +9,11 @@ import commons.PageFactoryManager;
 import cucumber.api.java.en.When;
 import cucumberOptions.Hooks;
 import pages.CommonPagePO;
-import pages.DeleteAccountPO;
-import pages.DeleteCustomerPagePO;
-import pages.DepositPO;
-import pages.EditAccountPO;
-import pages.EditCustomerPagePO;
-import pages.HomePagePO;
-import pages.NewAccountPO;
-import pages.NewCustomerPagePO;
 
 public class CommonPageSteps {
 	WebDriver driver;
 	private CommonPagePO commonPage;
-	private AbstractTest abstractTest;
-	private HomePagePO homePage;
-	private NewCustomerPagePO newCustomerPage;
-	private EditCustomerPagePO editCustomerPage;
-	private DeleteCustomerPagePO deleteCustomerPage;
-	private NewAccountPO newAccountPage;
-	private EditAccountPO editAccountPage;
-	private DeleteAccountPO deleteAccountPage;
-	private DepositPO depositPage;
+	private AbstractTest abstractTest;	
 	private AbstractPage abstractPage;
 
 	public CommonPageSteps() {
@@ -64,6 +48,7 @@ public class CommonPageSteps {
 	@When("^I verify expected data at \"(.*?)\" text in table with actual data \"(.*?)\"$")
 	public void iVerifyExpectedDataAtTextInTableWithActualData(String textInTableName, String actualValue) {
 		String expectedValue = commonPage.getDynamicValueInDynamicTextAtTable(textInTableName); 
+		//abstractTest.verifyEquals(actualValue, expectedValue);
 		abstractTest.verifyEquals(actualValue, expectedValue);
 	}
 	
@@ -85,37 +70,47 @@ public class CommonPageSteps {
 	    
 	}
 	
-	@When("^I select value is \"(.*?)\" in dropdown list \"(.*?)\"$")
-	public void iSelectDynamicValueInDynamicDropdownList(String value, String dropdownListName) {
-		commonPage.selectDynamicValueInDynamicDropdownList(value, dropdownListName);
+	/*@When("^I select value is \"(.*?)\" in dropdown list \"(.*?)\"$")
+	public void iSelectDynamicValueInDynamicDropdownList(String dropdownListName, String value) {
+		commonPage.selectDynamicValueInDynamicDropdownList(dropdownListName, value);
+	}*/
+	
+	@When("^I click on \"(.*?)\" icon$")
+	public void iClickOnDynamicDropdownIcon(String dropdownListName) {
+		commonPage.clickToInDynamicDropdownListIcon(dropdownListName);
+	}
+	
+	@When("^I select dropdown list \"(.*?)\" with value \"(.*?)\"$")
+	public void iSelectDynamicValueInDynamicDropdownList(String dropdownListName, String value) {
+		commonPage.selectDynamicValueInDynamicDropdownList(dropdownListName, value);
 	}
 
 	@When("^I open \"(.*?)\" page$")
 	public void iOpenDynamicPage(String dynamicPage) {
 		switch (dynamicPage) {
 		case "New Customer":
-			newCustomerPage = abstractPage.openNewCustomerPage(driver);
+			commonPage.openNewCustomerPage(driver);
 			break;
 		case "Edit Customer":
-			editCustomerPage = abstractPage.openEditCustomerPage(driver);
+			commonPage.openEditCustomerPage(driver);
 			break;
 		case "Delete Customer":
-			deleteCustomerPage = abstractPage.openDeleteCustomerPage(driver);
+			commonPage.openDeleteCustomerPage(driver);
 			break;
 		case "New Account":
-			newAccountPage = abstractPage.openNewAccountPage(driver);
+			commonPage.openNewAccountPage(driver);
 			break;
 		case "Edit Account":
-			editAccountPage = abstractPage.openEditAccountPage(driver);
+			commonPage.openEditAccountPage(driver);
 			break;
 		case "Delete Account":
-			deleteAccountPage = abstractPage.openDeleteAccountPage(driver);
+			commonPage.openDeleteAccountPage(driver);
 			break;
 		case "Deposit":
-			depositPage = abstractPage.openDepositPage(driver);
+			commonPage.openDepositPage(driver);
 			break;
 		default:
-			homePage = abstractPage.openHomePage(driver);
+			commonPage.openHomePage(driver);
 			break;
 		}
 

@@ -25,6 +25,7 @@ public class DepositPageSteps extends ShareData{
 		
 		if(account.equalsIgnoreCase("first")) {
 			depositPage.inputDataToAccountNumber(ShareData.firstAccount);
+			System.out.println("First Account = "+ ShareData.firstAccount);
 		}
 		else {
 			depositPage.inputDataToAccountNumber(ShareData.secondAccount);

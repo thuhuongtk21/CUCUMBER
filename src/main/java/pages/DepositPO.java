@@ -12,9 +12,9 @@ public class DepositPO extends AbstractPage {
 		this.driver = driver_;
 	}
 	
-	public void inputDataToAccountNumber(String value) {
+	public void inputDataToAccountNumber(String accountID) {
 		waitForControlVisible(driver, DepositPageUI.ACCOUNT_NO);
-		sendKeyToElement(driver, DepositPageUI.ACCOUNT_NO, value);
+		sendKeyToElement(driver, DepositPageUI.ACCOUNT_NO, accountID);
 	}
 	
 

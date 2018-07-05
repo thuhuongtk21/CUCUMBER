@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import interfaces.AbstractPageUI;
+import interfaces.CommonPageUI;
 
 import pages.ChangePasswordPO;
 import pages.CustomisedStatementPO;
@@ -85,7 +85,7 @@ public class AbstractPage {
 
 	}
 	
-	public void selectItemInDropdown(WebDriver driver, String locator, String dropdownName, String value) {
+	public void selectItemInDropdown(WebDriver driver, String locator, String dropdownName, String value ) {
 		locator = String.format(locator, dropdownName);
 		Select select = new Select(driver.findElement(By.xpath(locator)));
 		select.selectByVisibleText(value);
@@ -354,95 +354,7 @@ public class AbstractPage {
 	
 	
 	
-	/*Open Dynamic Page*/
-	public HomePagePO openHomePage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Manager");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Manager");
-		return PageFactoryManager.getHomePage(driver);
-		
-	}
 	
-	public NewCustomerPagePO openNewCustomerPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "New Customer");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "New Customer");
-		return PageFactoryManager.getNewCustomerPage(driver);
-	}
-	
-	public EditCustomerPagePO openEditCustomerPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Edit Customer");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Edit Customer");
-		return PageFactoryManager.getEditCustomerPage(driver);
-	}
-	
-	public DeleteCustomerPagePO openDeleteCustomerPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Delete Customer");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Delete Customer");
-		return PageFactoryManager.getDeleteCustomerPage(driver);
-	}
-	
-	public NewAccountPO openNewAccountPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "New Account");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "New Account");
-		return PageFactoryManager.getNewAccountPage(driver);
-	}
-	
-	public EditAccountPO openEditAccountPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Edit Account");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Edit Account");
-		return PageFactoryManager.getEditAccountPage(driver);
-	}
-	
-	public DeleteAccountPO openDeleteAccountPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Delete Account");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Delete Account");
-		return PageFactoryManager.getDeleteAccountPage(driver);
-	}
-	
-	public DepositPO openDepositPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Deposit");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Deposit");
-		return PageFactoryManager.getDepositPage(driver);
-	}
-	
-	public WithdrawalPO openWithdrawalPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Withdrawal");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Withdrawal");
-		return PageFactoryManager.getWithdrawalPage(driver);
-	}
-	
-	public FundTransferPO openFundTransferPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Fund Transfer");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Fund Transfer");
-		return PageFactoryManager.getFundTransferPage(driver);
-	}
-	
-	public ChangePasswordPO openChangePasswordPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Change Password");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Change Password");
-		return PageFactoryManager.getChangePasswordPage(driver);
-	}
-	
-	
-	
-	public MiniStatementPO openMiniStatementPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Mini Statement");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Mini Statement");
-		return PageFactoryManager.getMiniStatementPage(driver);
-	}
-	
-	public CustomisedStatementPO openCustomisedStatementPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Customised Statement");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Customised Statement");
-		return PageFactoryManager.getCustomisedStatementPage(driver);
-	}
-	
-	public LoginPagePO openLogOutPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Log out");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGE_LINK, "Log out");
-		acceptAlert(driver);
-		waitForControlVisible(driver, AbstractPageUI.LOGIN_PAGE_FORM);
-		return PageFactoryManager.getLoginPage(driver);
-	}
 	
 	
 
